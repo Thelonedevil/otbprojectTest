@@ -15,6 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require responsive-tables
 
 $(function(){ $(document).foundation(); });
 
@@ -33,7 +34,6 @@ function create(url) {
 }
 
 function createSuccessHandler(url) {
-
     window.location.href = url
 
 }

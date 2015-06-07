@@ -17,80 +17,80 @@
     <h1 class="text-center">OTBProject Web Interface</h1>
 
     <div class="sticky">
-        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large; is_hover: false">
+        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large; is_hover: false; mobile_show_parent_link: false;">
             <ul class="title-area">
                 <li class="name">
                     <h1><a href="/">Home</a></h1>
                 </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
             </ul>
             <% if content_for?(:channel) %>
                 <section class="top-bar-section">
                     <ul class="right">
-                        <li class="has-dropdown">
+                        <li class="has-dropdown ">
                             <a href="#"><%= yield(:channel) %></a>
                             <ul class="dropdown">
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/all">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/all');">
                                         All
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/own">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/own');">
                                         Broadcaster
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/own/all">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/own/all');">
                                         Broadcaster and below
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/smd">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/smd');">
                                         Super-Moderator
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/smd/all">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/smd/all');">
                                         Super-Moderator and below
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/mod">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/mod');">
                                         Moderator
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/mod/all">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/mod/all');">
                                         Moderator and below
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/reg">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/reg');">
                                         Regular
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/reg/all">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/reg/all');">
                                         Regular and below
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/sub">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/sub');">
                                         Subscribers
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/sub/all">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/sub/all');">
                                         Subscriber and below
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="/dashboard/channel/<%= yield(:channel) %>/get/usr">
+                                    <a href="javascript:create('/dashboard/channel/<%= yield(:channel) %>/get/usr');">
                                         Users
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
                     </ul>
@@ -100,6 +100,9 @@
 
         </nav>
     </div>
+</div>
+<div id="loadingModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <div class="loader">LOADING...</div>
 </div>
 <div class="row">
     <div class="small-10 small-centered columns">

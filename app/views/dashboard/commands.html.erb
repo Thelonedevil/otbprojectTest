@@ -43,13 +43,16 @@
         <% else %>
         <% end %></h1>
 </div>
-<table>
+<table class="responsive">
+    <thead>
     <tr>
-        <th>Name</th>
-        <th>Response</th>
-        <th>Script</th>
-        <th>User Level</th>
-    </tr>
+        <th width="200">Name</th>
+        <th width="200">Response</th>
+        <th width="200">Script</th>
+        <th width="200">User Level</th>
+        </tr>
+    </thead>
+    <tbody>
     <% @command.each do |command| %>
         <tr>
             <td><%= command.name %></td>
@@ -58,4 +61,5 @@
             <td><%= command.execUserLevel.capitalize! %></td>
         </tr>
     <% end %>
+    </tbody>
 </table>
