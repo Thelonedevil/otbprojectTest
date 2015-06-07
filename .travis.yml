@@ -9,5 +9,5 @@ script:
   - bundle exec warble war
 
 after_success:
-   - echo "<settings><servers><server><id>snapshots</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server><server><id>release</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server></servers></settings>" > ~/settings.xml
+   - echo "<settings><servers><server><id>snapshots</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server><server><id>release</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server></servers></settings>" > settings.xml
    - "[[ $TRAVIS_PULL_REQUEST == false ]] && mvn deploy:deploy-file -Dfile=otbprojectTest.war -DpomFile=pom.xml -DrepositoryId=snapshots -Durl=http://ts.tldcode.uk:8081/nexus/content/repositories/snapshots/"
