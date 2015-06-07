@@ -1,0 +1,32 @@
+<% content_for :title do %><%= 'Home' %>
+<% end %>
+<div>
+    <script>$(document).foundation('dropdown', 'reflow');</script>
+    <% @channels.each do |channel| %>
+        <a data-dropdown="drop-<%= channel %>" class="button"><%= channel %></a>
+
+        <div id="drop-<%= channel %>" class="f-dropdown text-center" data-dropdown-content aria-hidden="true" tabindex="-1">
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/all')">All</a>
+            <br>
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/own')">Broadcaster</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/own/all')">below</a>
+            <br>
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/smd')">Super-Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/smd/all')">below</a>
+            <br>
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/mod')">Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/mod/all')">below</a>
+            <br>
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/reg')">Regular</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/reg/all')">below</a>
+            <br>
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/sub')">Subscribers</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/sub/all')">below</a>
+            <br>
+            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/usr')">Users</a>
+            <br>
+
+        </div>
+    <% end %>
+    <div id="loadingModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+        <div class="loader">LOADING...</div>
+    </div>
+    <script>
+        
+    </script>
+</div>

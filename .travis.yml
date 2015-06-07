@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - jruby-19mode
+
+install:
+  - bundle install
+
+script:
+  - rake assets:precompile
+  - bundle exec warbler war
+  - deploy.sh
