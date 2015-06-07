@@ -1,1 +1,0 @@
-mvn deploy:deploy-file -DpomFile=pom.xml -DrepositoryId=snapshots -Durl=http://ts.tldcode.uk:8081/nexus/content/repositories/snapshots/
