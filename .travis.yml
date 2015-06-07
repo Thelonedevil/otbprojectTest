@@ -11,4 +11,4 @@ script:
 
 after_success:
    - echo "<settings><servers><server><id>snapshots</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server><server><id>release</id><username>\${env.OSSRH_USER}</username><password>\${env.OSSRH_PASS}</password></server></servers></settings>" > ~/settings.xml
-   - "[[ $TRAVIS_PULL_REQUEST == false ]] && deploy.sh"
+   - "[[ $TRAVIS_PULL_REQUEST == false ]] && ./deploy.sh"
