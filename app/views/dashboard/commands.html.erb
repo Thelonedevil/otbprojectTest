@@ -46,18 +46,16 @@
 <table class="responsive">
     <thead>
     <tr>
-        <th width="200">Name</th>
-        <th width="200">Response</th>
-        <th width="200">Script</th>
-        <th width="200">User Level</th>
+        <th width="150">Name</th>
+        <th width="100%">Response/Script</th>
+        <th width="150">User Level</th>
         </tr>
     </thead>
     <tbody>
     <% @command.each do |command| %>
         <tr>
             <td><%= command.name %></td>
-            <td><%= command.response %></td>
-            <td><%= command.script %></td>
+            <td><%= command.script.nil? ? command.response: "[Script] #{command.script}" %></td>
             <td><%= command.execUserLevel.capitalize! %></td>
         </tr>
     <% end %>

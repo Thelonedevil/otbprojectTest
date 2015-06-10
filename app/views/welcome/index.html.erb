@@ -1,25 +1,33 @@
 <% content_for :title do %><%= 'Home' %>
 <% end %>
-<div>
+<div xmlns="http://www.w3.org/1999/html">
     <script>$(document).foundation('dropdown', 'reflow');</script>
     <% @channels.each do |channel| %>
-        <a data-dropdown="drop-<%= channel %>" class="button"><%= channel %></a>
+        <a style="min-width:200px" data-dropdown="drop-<%= channel %>" class="button"><%= channel %></a>
 
-        <div id="drop-<%= channel %>" class="f-dropdown text-center" data-dropdown-content aria-hidden="true" tabindex="-1">
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/all')">All</a>
+        <div id="drop-<%= channel %>" class="f-dropdown content text-center" data-dropdown-content aria-hidden="true" tabindex="-1">
+            <span><a onclick="create('/dashboard/channel/<%= channel %>/get/alias')">Aliases</a></span>
             <br>
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/own')">Broadcaster</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/own/all')">below</a>
+            <span><a onclick="create('/dashboard/channel/<%= channel %>/get/quote')">Quotes</a> </span>
             <br>
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/smd')">Super-Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/smd/all')">below</a>
-            <br>
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/mod')">Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/mod/all')">below</a>
-            <br>
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/reg')">Regular</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/reg/all')">below</a>
-            <br>
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/sub')">Subscribers</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/sub/all')">below</a>
-            <br>
-            <a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/usr')">Users</a>
-            <br>
+            <span>Commands</span>
+            <div style="background-color: #333333; color: #FDFDF1">
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/all')">All</a>
+                <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/own')">Broadcaster</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/own/all')">below</a>
+                <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/smd')">Super-Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/smd/all')">below</a>
+                <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/mod')">Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/mod/all')">below</a>
+                <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/reg')">Regular</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/reg/all')">below</a>
+                <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/sub')">Subscribers</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/sub/all')">below</a>
+                <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/usr')">Users</a>
+                <br>
+            </div>
+
 
         </div>
     <% end %>

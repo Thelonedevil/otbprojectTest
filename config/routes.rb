@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  get 'dashboard/channel/:channel/get/:user_level' => 'dashboard#commands'
-  get 'dashboard/channel/:channel/get/:user_level/:all' => 'dashboard#commands'
+  # Command getting routes
+  get 'dashboard/channel/:channel/get/command/:user_level' => 'dashboard#commands'
+  get 'dashboard/channel/:channel/get/command/:user_level/:all' => 'dashboard#commands'
+
+  # Alias getting routes
+  get 'dashboard/channel/:channel/get/alias/' => 'dashboard#aliases'
+
+  # Quotes getting routes
+  get 'dashboard/channel/:channel/get/quote' => 'dashboard#quotes'
 
   get 'welcome/index'
 

@@ -40,7 +40,7 @@ function createSuccessHandler(url) {
 
 function createErrorHandler(data) {
 
-    alert("It failed, ffs!")
+   // alert("It failed, ffs!")
 
 }
 
