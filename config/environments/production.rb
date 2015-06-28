@@ -46,7 +46,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :info
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -70,9 +70,15 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  # Simple formatter which only displays the message.
+  class SimpleFormatter < ::Logger::Formatter
+    # This method is invoked when a log event occurs
+    def call(severity, timestamp, progname, msg)
+      "#{String === msg ? msg : msg.inspect}"
+    end
+  end
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = ::SimpleFormatter.new
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

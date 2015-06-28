@@ -14,6 +14,8 @@
             <div style="background-color: #333333; color: #FDFDF1">
                 <a onclick="create('/dashboard/channel/<%= channel %>/get/command/all')">All</a>
                 <br>
+                <a onclick="create('/dashboard/channel/<%= channel %>/get/command/int')">Internal</a>
+                <br>
                 <a onclick="create('/dashboard/channel/<%= channel %>/get/command/own')">Broadcaster</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/own/all')">below</a>
                 <br>
                 <a onclick="create('/dashboard/channel/<%= channel %>/get/command/smd')">Super-Moderator</a>/<a data-reveal-id="loadingModal" onclick="create('/dashboard/channel/<%= channel %>/get/command/smd/all')">below</a>

@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
     @channel = params[:channel]
     case user_level
       when 'all'
-        get_commands(%w(DEFAULT SUBSCRIBER REGULAR MODERATOR SUPER_MODERATOR BROADCASTER))
+        get_commands(%w(DEFAULT SUBSCRIBER REGULAR MODERATOR SUPER_MODERATOR BROADCASTER INTERNAL))
       when 'usr'
         get_commands('DEFAULT')
       when 'sub'
@@ -38,6 +38,8 @@ class DashboardController < ApplicationController
         else
           get_commands('BROADCASTER')
         end
+      when 'int'
+        get_commands('INTERNAL')
       else
     end
   end
@@ -64,7 +66,7 @@ class DashboardController < ApplicationController
     @alias.to_a.sort!
     @commands = Hash.new
     @alias.each do |a|
-      @commands[a] =  get_command a.command
+      @commands[a] = get_command a.command
     end
   end
 

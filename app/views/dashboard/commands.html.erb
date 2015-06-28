@@ -36,10 +36,12 @@
             <% end %>
         <% when 'own' %>
             <% if !all.nil? && all == 'all' %>
-                <%= "All commands for #{params[:channel]}" %>
+                <%= "All commands for the broadcaster of #{params[:channel]}" %>
             <% else %>
                 <%= "Broadcaster only commands for #{params[:channel]}" %>
             <% end %>
+        <% when 'int' %>
+            <%= "Internal commands for #{params[:channel]}" %>
         <% else %>
         <% end %></h1>
 </div>
@@ -49,13 +51,13 @@
         <th width="150">Name</th>
         <th width="100%">Response/Script</th>
         <th width="150">User Level</th>
-        </tr>
+    </tr>
     </thead>
     <tbody>
     <% @command.each do |command| %>
         <tr>
             <td><%= command.name %></td>
-            <td><%= command.script.nil? ? command.response: "[Script] #{command.script}" %></td>
+            <td><%= command.script.nil? ? command.response : "[Script] #{command.script}" %></td>
             <td><%= command.execUserLevel.capitalize! %></td>
         </tr>
     <% end %>
